@@ -1,187 +1,133 @@
-<?php 
-    echo "<h1>Tipos de dados</h1>";
-    $porta = true;
-    $fecho = false;
-    $contador = 16.15;
-    $modulo = -48;
-    $produto = 2e10;
-    $botão = null;
-    Class Motor{
-        var  $texto = "Lei Geral de Proteção de Dados";
-        function mostrador(){
-            echo "O texto aqui é um modelo de palavras baseadas em contexto algum:\n $this->texto";
-        }
-    }
-    $objeto = new Motor;
-    $objeto -> mostrador();
-    $catalogo  = [
-        'Automoveis' => [
-        "Carro" => "BMW",
-        "Metal" => "Ouro",
-        "Forma" => "Quadrada",
-        "Corpo do monitor" => -216.51
-    ],
-        'Arquiteturas' => [
-            "Casa" => "A 14 metros vire a direita",
-            "Igreja" => "Localizada em : 651161-16516",
-            "Assembléia" => true,
-            "função" => $objeto
-        ]
-        ];
-    //Esse é um comentário de uma linha em php
-    #Esse é outro comentário de uma linha em php
-    /**Esse é um comentário de 
-     * multiplas linhas em php
-     * Utilizado para comentar de forma extensa
-     */
-    
 
-    echo "<h3>$porta</h3>" . gettype($porta);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
-    
-    echo "<h3>$fecho</h3>" . gettype($fecho);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
-    
-    echo "<h3>$contador</h3>" . gettype($contador);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
-    
-    
-    echo "<h3>$modulo</h3>" . gettype($modulo);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
 
-    
-    echo "<h3>$produto</h3>" . gettype($produto);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
-
-    echo "<h3>$botão</h3>" . gettype($botão);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
-    
-    print gettype($catalogo);
-    echo "<h3>----------------------------------------------------------------------------</h3>";
-
-    echo "<br><br><h2>Condicionais:</h2>";
-
-    if($contador > 2000 && $contador < 2){
-        echo "O número é maior que 2000 e menor que 2";
-    }
-    else if($contador > 100 && $contador != 16.15){
-        echo "Ou o número é maior que 100 e diferente de 16.15";
-    }
-    else{
-        echo "O número é " . $contador;
-    }
-    print "<br>";
-    switch($produto){
-        case 0:
-            echo "Foi zero";
-            break;
-        case 1:
-            echo "Foi um número aí";
-            break;
-        case 2: 
-            echo "Outra coisa foi escolhida você que sabe";
-            break;
-        case 20000000000:
-            echo "O número é muito grande, mas você procura, acha!";
-            break;
-    }
-    print "<br>";
-    print "<br>";
-    while($modulo == -48){
-        echo "Esse laço vai rodar até a igualdade não ser mais satisfeita";
-        $modulo++;
-    }
-    do{
-        echo "Um cavalo nordestino, corre sem deixar função, perdido no derradeiro da estrada do sertão";
-        $modulo++;
-    }while($modulo < 0);
-    print "<br>";
-    print "<br>";
-    $lista_array = [0,1,2,3,4,5,6,7,8,9,10];
-    foreach($lista_array as $x){
-        echo "Tabuada do $x :<br>";
-        foreach ($lista_array as $y){
-            echo "$x x " . "$y = " . $x*$y . "<br>";
-        }
-        print "<br>";
-    }
-    print "<br><br>";
-    print("<h2>Conversão: </h2>");
-    print "<br><br>";
-
-    echo "Como está convertido para ${porta}\n Vai formando um texto de modelo ${botão}";
-
-    $idade = 18;
-    if($idade < 18){
-        echo "Menor de idade sai fora";
-    }
-    else{
-        echo "Maior de idade, e agora?pagar boleto?<br>";
-    }
-
-    $soma = 0;
-    for($i = 1;$i<=5;$i++){
-        for($j = $i;$j <= 5; $j++){
-            $soma += $j;
-            if($j == 4){
-                break;
-            }
-        }
-    }
-    echo $soma . "<br>";
-
-    $k = 0;
-
-    while($k < 5){
-        if($k ==3){
-            break;
-        }
-        echo $k;
-        $k++;
-    }
-    echo "\n";
-    $lista = array("controle","motor","galinha","cachorro","index","simples","composto");
-    foreach ($lista as $key => $value){
-        echo "{$key} => {$value}\n";
-    }
-    foreach ($lista as $valores){
-        echo "{$valores}\n";
-    }
-    echo "\n";
-
-    #Variáveis de variáveis:
-    $nome = "Cardoso";#variável normal
-    $$nome = "Roberto";#váriável da primeira variável nome
-    $$$nome = "Galvão";#variável da segunda variável nome
-    echo "{$nome}\n";#chama a primeira variável nome
-    echo "{$$nome}\n";#chama a segunda variável nome
-    echo "{$$$nome}\n\n";#chama a terceira variável nome
-
-    $estado = "Piauí";#variável inicial
-    $$estado  = "Ceará";#segunda variável da variável estádo
-    echo "{$Piauí}\n";#chama a segunda variável pela string da primeira variável
-
-    #2. Array Associativo e Interpolação de Variáveis
-
-    $mercado  = [
-        'atacado' => "Lojas Cromossomos","Lojas Mitocondriais","Lojas Complexo Golgiense","Lojas Ancilostomiase",
-        'varejo' => "Construtora Odebrech","Abreu e Lima","Passadina","Guimarães",
-        "tempo" => "em quanto tiver dinheiro","tudo que for possível","até onde não dever",
-        "recursos" => "todos","o máximo possível","o que tiver","até onde der"
-    ];
-    echo "Nome do negócio {$mercado["atacado"]}\nNome da construtora {$mercado["varejo"]}\n\n";
-
-    #3. Referências com o Caractere &
-    //Variáveis ficam associadas como se fossem a mesma, veja:
-    $valor = 100;
-    $controle = &$valor;
-    $controle = 4;
-    echo "controle => {$controle}\nvalor => {$valor}\n\n";
-
-    $produto = "eletronicos";#variável recebe o nome de outra
-    //Logo $produto pode receber tudo de $eletronicos
-    $eletronicos = ["tv" => ["marca" => "Samsung", "preco" => 2000]];
-
-echo ${$produto}['tv']['marca']; // saída: Samsung
-
-?>
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="img/icone-serenatto.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Serenatto - Cardápio</title>
+</head>
+<body>
+    <!--Para abrir o código html no navegador Ctrol + U -->
+    <main>
+        <!--1. Apresente a página do arquivo index.html do projeto Cardápio Digital;-->
+        <!--Você pode colocar o código php separado do html com uma tag que referencia o php:-->
+        <?php include 'código_por_trás.php';?>
+        <section class="container-banner">
+            <div class="container-texto-banner">
+                <img src="img/logo-serenatto.png" class="logo" alt="logo-serenatto">
+            </div>
+        </section>
+        <h2>Cardápio Digital</h2>
+        <section class="container-cafe-manha">
+            <div class="container-cafe-manha-titulo">
+                <h3>Opções para o Café</h3>
+                <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
+            </div>
+            <div class="container-cafe-manha-produtos">
+                <?php foreach ($produtoCafe as $cafe):?>
+                <div class="container-produto">
+                    <div class="container-foto">
+                        <img src="<?= $cafe['imagem']#esse "=" serve para substituir o echo?>">
+                    </div>
+                    <p><?= $cafe['nome']?></p>
+                    <p><?= $cafe['descrição']?></p>
+                    <p><?= $cafe['preço']?></p>
+                    <?php endforeach;?>
+                </div>
+                
+                <div class="container-produto">
+                    <?php foreach ($produtoCafe4 as $cafe4):?>
+                    <div class="container-foto">
+                        <img src="<?= $cafe4['imagem']?>">
+                    </div>
+                    <!--2. Nesse mesmo arquivo apresente o código abaixo:-->
+                    <p><?= $cafe4['nome']?></p>
+                    <p><?php echo $cafe4['descrição']?></p>
+                    <p><?php print $cafe4['preço']?></p>
+                    <?php endforeach;?>
+                </div>
+                <div class="container-produto">
+                    <?php foreach ($produtoCafe2 as $cafe2):?>
+                    <div class="container-foto">
+                        <img src="<?= $cafe2['imagem']?>">
+                    </div>
+                    <p><?= $cafe2['nome'] ?></p>
+                    <p><?= $cafe2['descrição']?></p>
+                    <p><?= $cafe2['preço']?></p>
+                    <?php endforeach;?>
+                </div>
+                <div class="container-produto">
+                    <?php foreach ($produtoCafe3 as $cofe3):?>
+                    <div class="container-foto">
+                        <img src="<?php echo $cofe3['imagem']?>">
+                    </div>
+                    <!--3.1. Mostre que a listagem da pagina do arquivo admin.html não está coerente com a
+lista de produtos que aparecem na página index.html;-->
+                    <p><?= $cofe3['nome']?></p>
+                    <p><?= $cofe3['descrição']?></p>
+                    <p><?= $cofe3['preço']?></p>
+                </div>
+                <?php endforeach;?>
+            </div>
+        </section>
+        <section class="container-almoco">
+            <div class="container-almoco-titulo">
+                <h3>Opções para o Almoço</h3>
+                <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
+            </div>
+            <div class="container-almoco-produtos">
+                <?php foreach ($almoço1 as $al1):?>
+                <div class="container-produto">
+                    <div class="container-foto">
+                        <img src="<?= $al1['imagem']?>">
+                    </div>
+                    <p><?= $al1['nome']?></p>
+                    <p><?= $al1['descrição']?></p>
+                    <p><?= $al1['preço']?></p>
+                    <?php endforeach;?>
+                </div>
+                <div class="container-produto">
+                    <?php foreach ($almoço2 as $al2):?>
+                    <div class="container-foto">
+                        <img src="<?= $al2['imagem']?>">
+                    </div>
+                    <p><?= $al2['nome']?></p>
+                    <p><?= $al2['descrição']?></p>
+                    <p><?= $al2['preço']?></p>
+                    <?php endforeach;?>
+                </div>
+                <div class="container-produto">
+                    <?php foreach ($almoço3 as $al3):?>
+                    <div class="container-foto">
+                        <img src="<?= $al3['imagem']?>">
+                    </div>
+                    <p><?=$al3['nome']?></p>
+                    <p><?=$al3['descrição']?></p>
+                    <p><?=$al3['preço']?></p>
+                    <?php endforeach;?>
+                </div>
+                <div class="container-produto">
+                    <?php foreach ($almoço4 as $al4):?>
+                    <div class="container-foto">
+                        <img src="<?= $al4['imagem']?>">
+                    </div>
+                    <p><?=$al4['nome']?></p>
+                    <p><?=$al4['descrição']?></p>
+                    <p><?=$al4['preço']?></p>
+                </div>
+                <?php endforeach;?>
+            </div>                
+        </section>
+    </main>
+</body>
+</html>
